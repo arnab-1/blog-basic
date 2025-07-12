@@ -1,15 +1,20 @@
 import { useState } from "react";
-
+import axios from "axios";
 
 function App() {
 
   const [title,setTitle] = useState('');
   const [content,setContent] = useState('');
-
-  const fetch = () => {
-        console.log(title);
-        console.log(content);
+  
+  const fetch = async () => {
+        const res = await axios.post('http://localhost:7000/backend-call',{
+          title,
+          content
+        });
+        console.log(res.data);
         
+        setTitle('');
+        setContent('');
         // will call backkend from here later
       }
   return (
@@ -23,7 +28,7 @@ function App() {
       placeholder="Put content here"
       value={content}
       onChange={(e) => setContent(e.target.value)}/>
-      <button type="submit" onClick={fetch}>create post</button>
+      <button type="submit" onClick={fetch} >create post</button>
 
     </div>
   );
