@@ -5,16 +5,7 @@ function App() {
 
   const [title,setTitle] = useState('');
   const [content,setContent] = useState('');
-  const [posts, setPosts] = useState('');
-
-  useEffect(() => {
-    fetchPosts()
-  },[]);
-
-  const fetchPosts = async () => {
-    const res = await axios.get('http://localhost:7000/posts');
-    setPosts(res.data);
-  }
+       // Calling backkend from here later
   const fetch = async () => {
         const res = await axios.post('http://localhost:7000/backend-call',{
           title,
@@ -24,7 +15,7 @@ function App() {
         
         setTitle('');
         setContent('');
-        // will call backkend from here later
+       
       }
   return (
     <div className="App">
