@@ -11,6 +11,8 @@ function App() {
    try { 
       const res = await axios.get('http://localhost:7000/posts');
       setPosts(res.data); // Update the state with feched posts
+      //console.log(res.data);
+      
     } catch (err) {
       console.log("Failed to fetch post",err); 
     }
@@ -26,7 +28,7 @@ function App() {
         
         setTitle('');
         setContent('');
-       
+        fetchPosts();
       };
 
       useEffect( () => {
