@@ -5,4 +5,10 @@ const createPost = (title,content, callback) => {
     db.query(sql,[title, content],callback);
 };
 
-module.exports = { createPost };
+
+const fetchAllPosts = (callback) => {
+    const sql = 'SELECT * FROM posts ORDER BY id DESC';
+    db.query(sql,callback);
+}
+
+module.exports = { createPost , fetchAllPosts};

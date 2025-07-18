@@ -17,6 +17,17 @@ const creatPost = (req, res) => {
     })
 };
 
+    const getAllPosts = (req,res) => {
+        Post.fetchAllPosts((err,results) => {
+            if (err) {
+                console.log('❌ Error fetching posts:', err);
+                return res.status(500).json({ error: 'Internal Server Error'});            
+            }
+
+            res.status(200).json(results);
+        })
+    }
+
 const welcomeAPI = (req,res) => {
     res.send('🎉 BlogPractice API is Running!');
 };
@@ -24,5 +35,6 @@ const welcomeAPI = (req,res) => {
 
 module.exports = {
     creatPost,
+    getAllPosts,
     welcomeAPI
 }
