@@ -56,6 +56,8 @@ function App() {
       {posts.map(post => (
         <li key={post.id}>
           <strong>{post.title}</strong> : {post.content}
+          <button type="submit" onClick={function(){}} > Update</button>
+          <button type="submit" onClick={()=>{}}> Delete</button>
         </li>
       ))}
     </ul>
