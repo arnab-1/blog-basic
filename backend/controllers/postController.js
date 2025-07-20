@@ -20,7 +20,6 @@ const creatPost = (req, res) => {
 const updatePost = (req,res) => {
     const { id } = req.params;
     const { title, content } = req.body;
-    console.log('UpdatePost called with id:',req.params.id);
     
     Post.updatePostById(id,title,content, (err,result) => {
         if (err) {
