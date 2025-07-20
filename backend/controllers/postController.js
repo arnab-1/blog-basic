@@ -17,6 +17,22 @@ const creatPost = (req, res) => {
     })
 };
 
+const updatePost = (req,res) => {
+    const { id } = req.params;
+    const { title, content } = req.body;
+    console.log('UpdatePost called with id:',req.params.id);
+    
+    Post.updatePostById(id,title,content, (err,result) => {
+        if (err) {
+            console.log('Error updating post:', err);
+            return res.status(500).json({ message : 'Failed to update post'});           
+        }
+
+        res.status(200).json({message : 'Post Update successfully' });
+    });
+
+}
+
     const getAllPosts = (req,res) => {
         Post.fetchAllPosts((err,results) => {
             if (err) {
@@ -35,6 +51,7 @@ const welcomeAPI = (req,res) => {
 
 module.exports = {
     creatPost,
+    updatePost,
     getAllPosts,
     welcomeAPI
 }
