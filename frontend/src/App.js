@@ -103,7 +103,7 @@ function App() {
         {/* Render all posts */}
         {posts.map(post => (
           <li key={post.id}>
-           <b>{post.id}</b> <strong>{post.title}</strong> : {post.content} 
+            <strong>{post.title}</strong> : {post.content} 
             {/* Button to load post data for editing */}
             <button type="submit" onClick={() => fetchDatatoUpdate(post.id)}> Update</button>
             {/* Placeholder for delete functionality */}
