@@ -11,9 +11,15 @@ const updatePostById = (id, title, content , callback) => {
     db.query(sql,[title,content,id],callback);
 }
 
+const deletePostById = (id, callback) => {
+    
+    const sql = 'DELETE FROM posts WHERE id = ?';
+    db.query(sql,[id], callback);
+}
+
 const fetchAllPosts = (callback) => {
     const sql = 'SELECT * FROM posts ORDER BY id DESC';
     db.query(sql,callback);
 }
 
-module.exports = { createPost , updatePostById, fetchAllPosts};
+module.exports = { createPost , updatePostById, deletePostById, fetchAllPosts};

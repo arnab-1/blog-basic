@@ -67,6 +67,15 @@ function App() {
     setEditingId(key); // Set editing id
   }
 
+  const deletePost = async (id) => {
+    try {
+      await axios.delete(`http://localhost:7000/posts/${id}`);
+      setPosts(prev => prev.filter(posts => posts.id !== id));
+    } catch (err) {
+      console.log("Failed to delete post Hare Krishna", err);
+    }
+  }
+
   return (
     <div className="App">
       <h3> blog app basic</h3>
@@ -94,11 +103,11 @@ function App() {
         {/* Render all posts */}
         {posts.map(post => (
           <li key={post.id}>
-            <strong>{post.title}</strong> : {post.content}
+           <b>{post.id}</b> <strong>{post.title}</strong> : {post.content} 
             {/* Button to load post data for editing */}
             <button type="submit" onClick={() => fetchDatatoUpdate(post.id)}> Update</button>
             {/* Placeholder for delete functionality */}
-            <button type="submit" onClick={() => {}}> Delete</button>
+            <button type="submit" onClick={() => deletePost(post.id)}> Delete</button>
           </li>
         ))}
       </ul>
