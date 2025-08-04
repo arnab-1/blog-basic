@@ -12,7 +12,7 @@ Basic Navigation: Essential navigation elements to browse posts.
 
 📁 Folder Structure
 Here's a typical folder structure for this blog-basic project:
-
+```
 blog-basic/
 ├── public/                 # Static assets (images, CSS, client-side JS)
 │   ├── css/
@@ -46,7 +46,7 @@ blog-basic/
 ├── package.json            # Node.js project dependencies
 ├── requirements.txt        # Python project dependencies
 └── README.md               # This README file
-
+```
 🚀 Technologies Used
 Frontend:
 
